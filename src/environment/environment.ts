@@ -7,12 +7,7 @@ dotenv.config();
  */
 export const environment = {
     appName: process.env.npm_package_name,
-    eventBus: {
-        connectionString: process.env.EventBusConnection,
-        uploadTopic: process.env.UPLOAD_TOPIC,
-        uploadSubscription: process.env.UPLOAD_SUBSCRIPTION,
-        validationTopic: process.env.VALIDATION_TOPIC,
-    },
+    eventTopics: process.env.TOPICS,
     appPort: parseInt(process.env.PORT as string) || 8080,
     authPermissionUrl: process.env.AUTH_PERMISSION_URL,
     mongoDBURL:process.env.MONGOURL,
