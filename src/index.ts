@@ -5,6 +5,7 @@ import { ListenerService } from "./services/listener.service";
 import App from './app';
 import dotenv from 'dotenv';
 import healthController from './controller/health-controller';
+import { StatusController } from "./controller/status-controller";
 
 //Load environment variables
 dotenv.config()
@@ -44,7 +45,8 @@ const PORT: number = environment.appPort;
 
 new App(
     [
-        healthController
+        healthController,
+        new StatusController(dbService)
     ],
     PORT,
 ).listen();

@@ -18,9 +18,9 @@ export class ForeignKeyException extends HttpException {
     }
 }
 
-export class UserNotFoundException extends HttpException {
-    constructor(name: string) {
-        super(404, `User not found for the given username '${name}'.`);
+export class RecordNotFoundException extends HttpException {
+    constructor(tdeiRecord: string) {
+        super(404, `Record not found for the record '${tdeiRecord}'.`);
     }
 }
 

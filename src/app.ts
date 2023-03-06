@@ -14,7 +14,7 @@ import { ListenerService } from "./services/listener.service";
 class App {
     public app: express.Application;
     public port: number;
-    private databaseService: DatabaseService;
+    // private databaseService: DatabaseService;
 
     constructor(controllers: IController[], port: number) {
         this.app = express();
@@ -25,7 +25,7 @@ class App {
         this.initializeMiddlewares();
         this.initializeControllers(controllers);
         
-        this.databaseService = new DatabaseService();
+        // this.databaseService = new DatabaseService();
 
         //Last middleware to be registered: error handler. 
         this.app.use(errorHandler);

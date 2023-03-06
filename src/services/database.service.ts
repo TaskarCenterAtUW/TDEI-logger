@@ -4,6 +4,7 @@ import { environment } from "../environment/environment";
 import { QueueMessage } from "nodets-ms-core/lib/core/queue";
 import { QueueMessageContent } from "../models/messages/queue-message-content";
 import Record from "../models/record";
+import { RecordNotFoundException } from "../exceptions/http/http-exceptions";
 
 
 export class DatabaseService {
@@ -58,6 +59,30 @@ export class DatabaseService {
             console.log(e);
         });
 
+    }
+
+    /**
+     * 
+     * @param recordId tdeiRecordID
+     */
+    getStatus(recordId: string): Promise<Record> {
+
+        return new Promise((resolve,reject)=>{
+            console.log('Finding record with ID '+recordId);
+            this.collections.records?.findOne<Record>({'tdeiRecordId':recordId}).then((e)=>{
+                if(e != null){
+                    console.log('Found record');
+                 return resolve(e);
+                }
+                else {
+                    return reject(new RecordNotFoundException(recordId));
+                }
+    
+            }).catch((e)=>{
+                return reject(e);
+            });
+        })
+       
     }
 
 }
