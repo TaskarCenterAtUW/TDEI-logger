@@ -4,8 +4,8 @@ import { DatabaseService } from "./services/database.service";
 // import { connectToDatabase } from "./services/database.service";
 
 
-console.log('Hello');
-console.log(environment.mongoDBURL);
+// console.log('Hello');
+// console.log(environment.mongoDBURL);
 
 import abc from './assets/gtfs-flex-upload.json';
 import { QueueMessage } from "nodets-ms-core/lib/core/queue";
