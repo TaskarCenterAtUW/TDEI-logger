@@ -23,13 +23,12 @@ var queueContent = QueueMessageContent.from(queueMessage.data);
 
 Core.initialize();
 
-const existingTopics = [
-    'gtfs-flex-upload',
-    'gtfs-flex-validation',
-    'osw-upload',
-    'osw-validation'
-];
 
+const topicNames = process.env.TOPICS;
+// console.log(topicNames);
+const allTopics = topicNames?.split(',');
+console.log('Logger will listen to the following topics: ');
+console.log(allTopics);
 
 
 
@@ -40,7 +39,7 @@ dbService.initialize().then((connected)=>{
     // dbService.processMessage(queueMessage);
 });
 
-existingTopics.forEach(singleTopic => {
+allTopics?.forEach(singleTopic => {
     var topic = Core.getTopic(singleTopic);
     topic.subscribe('data-logger',new ListenerService(dbService));
 });
