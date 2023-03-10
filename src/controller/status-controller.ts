@@ -32,7 +32,7 @@ export class StatusController implements IController{
         }
         else {
              // return loaded posts
-            response.send("I'm healthy !!");
+            response.status(404).send("Record Id is empty");
         }
     } catch(e){
         if(e instanceof HttpException){
