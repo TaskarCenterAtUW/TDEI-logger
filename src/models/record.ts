@@ -68,7 +68,6 @@ export default class Record extends AbstractDomainEntity {
     static recordToResponse(record: Record):RecordResponse {
         var recordResponse = RecordResponse.from(record);
         
-        // record.history.sort((a,b)=>a.publishedDate.getTime() - b.publishedDate.getTime());
         if(record.history[0]){
             const message = record.history[0];
             const content = QueueMessageContent.from(message.data);
