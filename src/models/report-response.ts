@@ -12,9 +12,6 @@ export class ReportResponse extends AbstractDomainEntity{
     isComplete:boolean = false;
     
     @Prop()
-    filePath?:string;
-
-    @Prop()
     status!:string;
 
 }
