@@ -15,7 +15,6 @@ export class DatabaseService {
         return new Promise((resolve, reject) => {
             const client: mongoDB.MongoClient = new mongoDB.MongoClient(environment.mongoDBURL!);
 
-            // await client.connect();
             client.connect().then((value) => {
                 const db: mongoDB.Db = client.db(environment.mongoDBName);
 
@@ -43,7 +42,6 @@ export class DatabaseService {
              
             if(e == null){
                 console.log('Inserting new record '+queueContent.tdeiRecordId);
-                // record.createdAt = queueMessage.publishedDate;
                 var record = Record.generateRecord(msg);
                 record.createdAt = msg.publishedDate;
                 this.collections.records?.insertOne(record);
@@ -86,22 +84,3 @@ export class DatabaseService {
     }
 
 }
-
-
-// export const collections: { records?: mongoDB.Collection } = {}
-
-// export async function connectToDatabase() {
-//     dotenv.config();
-
-//     const client: mongoDB.MongoClient = new mongoDB.MongoClient(environment.mongoDBURL!);
-
-//     await client.connect();
-
-//     const db: mongoDB.Db = client.db(environment.mongoDBName);
-
-//     const recordsCollection: mongoDB.Collection = db.collection(environment.recordsCollection!);
-
-//     collections.records = recordsCollection;
-
-//     console.log(`Successfully connected to database: ${db.databaseName} and collection: ${recordsCollection.collectionName}`);
-// }

@@ -32,9 +32,6 @@ export class RecordResponse extends AbstractDomainEntity {
     statusMessage?:string;
 
     @Prop()
-    filePath?:string;
-
-    @Prop()
     history:QueueMessage[] = []
 
 }
