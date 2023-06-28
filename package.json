@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test":"jest",
+    "test":"jest --silent",
     "test:watch":"jest --watchAll",
     "test:coverage":"jest --coverage",
     "build": "rimraf ./build && tsc",
