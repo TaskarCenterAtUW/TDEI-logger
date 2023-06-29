@@ -55,3 +55,14 @@ When it is in progress
 ## GetReport API
 PATH : `<baseurl>/report?tdeiRecordId=<recordId>`
 This API gives out the complete history of the record
+
+# Testing
+Unit testing for the application is done with `jest` framework.
+
+To run the unit tests, use the following commands :
+
+`npm install`
+
+`npm run test`
+
+The generated report will be at `test-report.html` (generated after running the tests)
