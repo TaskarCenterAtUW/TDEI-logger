@@ -12,10 +12,13 @@ describe('Listener service', ()=>{
         const mocDataService = new MockDataService();
 
         test('When message is received, expect database to process that message', ()=>{
+            // Arrange
             const listener = new ListenerService(mocDataService);
             const message = QueueMessage.from({messageId:'sample'});
             const processMessageSpy = jest.spyOn(mocDataService,'processMessage');
+            // Act
             listener.onReceive(message);
+            // Assert
             expect(processMessageSpy).toHaveBeenCalledTimes(1);
             expect(processMessageSpy).toHaveBeenCalledWith(message);
 
