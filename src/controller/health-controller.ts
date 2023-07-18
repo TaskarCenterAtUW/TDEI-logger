@@ -19,6 +19,12 @@ class HealthController implements IController {
         // return loaded posts
         response.status(200).send("I'm healthy !!");
     }
+
+    postping = async (request: Request, response: express.Response) => {
+
+        // return loaded posts
+        response.status(200).send("I'm healthy !! too");
+    }
 }
 
 const healthController = new HealthController();
