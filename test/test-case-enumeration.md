@@ -47,3 +47,11 @@ describe("{{Component}}", () => {
 | Status Controller | Get Stage | Functional| When requested with a empty recordID | Expect to get the 400 HTTP status |:white_check_mark:|
 | Health Controller | Ping | Functional | When health ping is requested | Expect to receive 200 HTTP status | :white_check_mark:|
 | Listener Service | On Receive | Functional | When a message is received by the listener | Expect it to be processed by database service | :white_check_mark:|
+
+
+### Integration tests
+
+| Component | Feature Under Test | Scenario | Expectation | Status |
+|-|-|-|-|-|
+| Data logger | Service bus Integration | Whenever a message is posted in the listed topics | Expect to have listener service called | :white_check_mark:|
+| Data logger | Database Integration | Whenever there is a database to be queried | expect to get the results from the database |:white_check_mark:|
