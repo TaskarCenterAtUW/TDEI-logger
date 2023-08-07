@@ -54,9 +54,11 @@ describe('Data logger integration test',()=>{
     },60000)
 
     test('Expect to have an active connection with database', async ()=>{
-
+        // Arrange
         const dbService =  new DatabaseService();
+        // Act
         const result = await dbService.initialize();
+        // Assert
         expect(result).toBe(true);
 
     },15000)
