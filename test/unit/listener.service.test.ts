@@ -1,6 +1,6 @@
 import { mock } from "node:test";
-import { MockDataService } from "./mock/mock-data-service"
-import {ListenerService} from '../src/services/listener.service';
+import { MockDataService } from "../mock/mock-data-service"
+import {ListenerService} from '../../src/services/listener.service';
 import { QueueMessage } from "nodets-ms-core/lib/core/queue";
 
 /**

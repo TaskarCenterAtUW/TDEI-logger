@@ -65,4 +65,16 @@ To run the unit tests, use the following commands :
 
 `npm run test`
 
+
 The generated report will be at `test-report.html` (generated after running the tests)
+
+## Integration tests
+To run integration tests, a .env file is needed with minimum of the following configuration
+| Parameter | description |
+|-|-|
+|MONGOURL | Connection string to the mongodb |
+|QUEUECONNECTION | Service bus connection to azure|
+
+To run the integration test, use the command:
+
+`npm run test:integration`

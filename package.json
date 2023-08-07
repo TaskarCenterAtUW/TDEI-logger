@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test":"jest --silent",
+    "test":"jest --silent --testRegex 'test/unit'",
     "test:watch":"jest --watchAll",
-    "test:coverage":"jest --coverage",
+    "test:integration":"TEST_ENV=integration jest --testRegex 'test/integration' --forceExit",
+    "test:coverage":"jest --coverage --testRegex 'test/unit'",
     "build": "rimraf ./build && tsc",
     "start": "npm run build  && npm run copy:assets && node build/index.js",
     "serve": "npm run build  && npm run copy:assets && node build/app.js",

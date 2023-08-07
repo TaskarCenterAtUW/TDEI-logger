@@ -1,0 +1,37 @@
+{
+    "messageType": "gtfs-flex-upload",
+    "publishedDate": "2023-02-28T06:02:51.628177671Z",
+    "data": {
+        "stage": "Flex-Upload",
+        "request": {
+            "tdei_org_id": "5e339544-3b12-40a5-8acd-78c66d1fa981",
+            "tdei_service_id": "string",
+            "collected_by": "local",
+            "collection_date": "2023-02-28T06:00:51.418Z",
+            "collection_method": "string",
+            "valid_from": "2023-02-28T06:00:51.418Z",
+            "valid_to": "2023-02-28T06:00:51.418Z",
+            "data_source": "string",
+            "polygon": {
+                "coordinates": [
+                    [
+                        [
+                            0
+                        ]
+                    ]
+                ]
+            },
+            "flex_schema_version": "1.0"
+        },
+        "meta": {
+            "file_upload_path": "https://tdeisamplestorage.blob.core.windows.net/gtfsflex/2023%2FFEBRUARY%2F5e339544-3b12-40a5-8acd-78c66d1fa981%2Ffail_schema_1_dbed9e6f083a4b28a1c50b14aa508d2b.zip"
+        },
+        "response": {
+            "success": true,
+            "message": "File uploaded for the Organization : 5e339544-3b12-40a5-8acd-78c66d1fa981 with tdei record id : dbed9e6f083a4b28a1c50b14aa508d2b"
+        },
+        "tdei_record_id": "dbed9e6f083a4b28a1c50b14aa508d2b",
+        "tdei_org_id": "5e339544-3b12-40a5-8acd-78c66d1fa981",
+        "user_id": "7961d767-a352-464f-95b6-cd1c5189a93c"
+    }
+}

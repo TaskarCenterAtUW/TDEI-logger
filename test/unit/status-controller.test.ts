@@ -8,8 +8,8 @@
 
 import { getMockReq, getMockRes } from "@jest-mock/express"
 // Need to mock the database service
-import { StatusController } from "../src/controller/status-controller";
-import { MockDataService } from './mock/mock-data-service';
+import { StatusController } from "../../src/controller/status-controller";
+import { MockDataService } from '../mock/mock-data-service';
 
 
 
