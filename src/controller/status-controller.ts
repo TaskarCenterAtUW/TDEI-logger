@@ -29,7 +29,7 @@ export class StatusController implements IController{
         if(recordId != ""){
             var record = await this.databaseService.getStatus(recordId);
                 
-            response.send(Record.recordToResponse(record));
+            response.status(200).send(Record.recordToResponse(record));
         }
         else {
              // return loaded posts
@@ -55,7 +55,7 @@ export class StatusController implements IController{
         if(recordId != ""){
             var record = await this.databaseService.getStatus(recordId);
                 
-            response.send(Record.recordToReport(record));
+            response.status(200).send(Record.recordToReport(record));
         }
         else {
              // return loaded posts

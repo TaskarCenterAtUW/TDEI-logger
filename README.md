@@ -55,3 +55,26 @@ When it is in progress
 ## GetReport API
 PATH : `<baseurl>/report?tdeiRecordId=<recordId>`
 This API gives out the complete history of the record
+
+# Testing
+Unit testing for the application is done with `jest` framework.
+
+To run the unit tests, use the following commands :
+
+`npm install`
+
+`npm run test`
+
+
+The generated report will be at `test-report.html` (generated after running the tests)
+
+## Integration tests
+To run integration tests, a .env file is needed with minimum of the following configuration
+| Parameter | description |
+|-|-|
+|MONGOURL | Connection string to the mongodb |
+|QUEUECONNECTION | Service bus connection to azure|
+
+To run the integration test, use the command:
+
+`npm run test:integration`

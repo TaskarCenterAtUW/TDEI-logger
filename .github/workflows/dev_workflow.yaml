@@ -28,9 +28,13 @@ jobs:
       name: Development 
     runs-on: ubuntu-latest
     steps:
+    - name: 'Login via Azure CLI'
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
     - name: Deploy to Dev
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
-        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-        images: ${{ secrets.REGISTRY_DOMAIN }}/${{ secrets.REGISTRY_REPO }}:${{ github.sha }}
+        images: ${{ secrets.REGISTRY_DOMAIN }}/${{ secrets.REGISTRY_REPO }}:dev-latest

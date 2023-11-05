@@ -17,7 +17,13 @@ class HealthController implements IController {
     getping = async (request: Request, response: express.Response) => {
 
         // return loaded posts
-        response.send("I'm healthy !!");
+        response.status(200).send("I'm healthy !!");
+    }
+
+    postping = async (request: Request, response: express.Response) => {
+
+        // return loaded posts
+        response.status(200).send("I'm healthy !! too");
     }
 }
 
