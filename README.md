@@ -84,12 +84,12 @@ To run the integration test, use the command:
 
 | Message Type | Service | Description | Posted to (Topic) |
 |-|-|-|-|
-| flex-upload | Flex data service | When flex file is uploaded to using /api/v1/gtfs-flex post service | gtfs-flex-upload |
-| flex-validation | Flex validation service | When flex file is validated by the service | gtfs-flex-validation |
+| gtfs-flex-upload | Flex data service | When flex file is uploaded to using /api/v1/gtfs-flex post service | gtfs-flex-upload |
+| gtfs-flex-validation | Flex validation service | When flex file is validated by the service | gtfs-flex-validation |
 | flex-data-service | Flex data service | When flex file validation is done and info saved | gtfs-flex-data-service|
-| pathways-upload | Pathways data service | When pathways file is uploaded to using /api/v1/gtfs-pathways post service | gtfs-pathways-upload |
-| pathways-validation | Pathways validation service | When pathways file is validated by the service | gtfs-pathways-validation |
-| pathways-data-service | Pathways data service | When pathways file validation is done and info saved | gtfs-pathways-data-service|
+| gtfs-pathways-upload | Pathways data service | When pathways file is uploaded to using /api/v1/gtfs-pathways post service | gtfs-pathways-upload |
+| gtfs-pathways-validation | Pathways validation service | When pathways file is validated by the service | gtfs-pathways-validation |
+| gtfs-pathways-data-service | Pathways data service | When pathways file validation is done and info saved | gtfs-pathways-data-service|
 | osw-upload | OSW data service | When OSW file is uploaded to using /api/v1/osw post service | osw-upload |
 | osw-validation | OSW validation service | When osw file is validated by the service | osw-validation |
 | osw-format-result | OSW formatter service | When osw file is converted to multiple | osw-formatting-service|
