@@ -5,7 +5,12 @@ import { DatabaseService } from "./database.service";
 export class ListenerService implements ITopicSubscription {
 
     databaseService: DatabaseService;
-    regularFlowTypes: string[] = ['gtfs-flex-upload','gtfs-flex-validation','flex-data-service']
+    // Message types present in the regular file upload flow
+    regularFlowTypes: string[] = ['gtfs-flex-upload','gtfs-flex-validation','flex-data-service',
+                                    'gtfs-pathways-upload','gtfs-pathways-validation','gtfs-pathways-data-service',
+                                'osw-upload','osw-validation','osw-format-result','osw-data-service']
+    confidenceFlowTypes: string[] = ['osw-confidence-request','confidence-response']
+    formatFlowTypes: string[] = ['osw-formatter-request','osw-formatter-response']
 
 
     constructor(dbService:DatabaseService) {
