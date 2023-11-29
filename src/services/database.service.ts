@@ -35,7 +35,7 @@ export class DatabaseService {
     }
 
     processMessage(msg:QueueMessage) {
-
+        
         var queueContent = QueueMessageContent.from(msg.data);
 
         this.collections.records?.findOne<Record>({'tdeiRecordId':queueContent.tdeiRecordId}).then((e)=>{
