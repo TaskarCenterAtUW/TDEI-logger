@@ -78,3 +78,25 @@ To run integration tests, a .env file is needed with minimum of the following co
 To run the integration test, use the command:
 
 `npm run test:integration`
+
+
+## Message type definitions for each stage
+
+| Message Type | Service | Description | Posted to (Topic) |
+|-|-|-|-|
+| flex-upload | Flex data service | When flex file is uploaded to using /api/v1/gtfs-flex post service | gtfs-flex-upload |
+| flex-validation | Flex validation service | When flex file is validated by the service | gtfs-flex-validation |
+| flex-data-service | Flex data service | When flex file validation is done and info saved | gtfs-flex-data-service|
+| pathways-upload | Pathways data service | When pathways file is uploaded to using /api/v1/gtfs-pathways post service | gtfs-pathways-upload |
+| pathways-validation | Pathways validation service | When pathways file is validated by the service | gtfs-pathways-validation |
+| pathways-data-service | Pathways data service | When pathways file validation is done and info saved | gtfs-pathways-data-service|
+| osw-upload | OSW data service | When OSW file is uploaded to using /api/v1/osw post service | osw-upload |
+| osw-validation | OSW validation service | When osw file is validated by the service | osw-validation |
+| osw-format-result | OSW formatter service | When osw file is converted to multiple | osw-formatting-service|
+| osw-data-service | OSW data service | When osw file validation is done and conversion complete | osw-data-service|
+
+
+### Message types for alternative flows
+
+1. Confidence metric calculation flow for osw
+2. Formatter flow for osw
