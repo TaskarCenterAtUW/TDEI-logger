@@ -100,3 +100,20 @@ To run the integration test, use the command:
 
 1. Confidence metric calculation flow for osw
 2. Formatter flow for osw
+
+### Message types in confidence metric flow
+
+| Message Type | Service | Description | Posted to (Topic) |
+|-|-|-|-|
+| osw-confidence-request | OSW data service | Request from data service regarding confidence | osw-confidence-requested |
+| confidence-response | OSW confidence service | Response from confidence service regarding confidence | osw-confidence-calculated |
+
+
+### Formatting types flow in osw 
+
+| Message Type | Service | Description | Posted to (Topic) |
+|-|-|-|-|
+| osw-formatter-request | OSW data service | Request from data service regarding format change | osw-validation |
+| osw-formatter-response | OSW Formatter service | Response from formatter service for formatting | osw-formatting-service |
+
+
