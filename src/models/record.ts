@@ -117,10 +117,7 @@ export default class Record extends AbstractDomainEntity {
     }
 
     static nextStage(record:Record):string {
-        var stages = ["upload","validation","data-service"];
-        if(record.type == 'osw'){
-            stages.push('format-result'); // Added step for osw only
-        } 
+        let stages =  Record.getStages(record.type);
         record.history.forEach((message)=>{
                 
             const content = QueueMessageContent.from(message.data);
@@ -139,12 +136,17 @@ export default class Record extends AbstractDomainEntity {
         }
     }
 
-    static isProcessingComplete(record:Record):boolean {
-        // Check for the stages
+    static getStages(recordType:string): string[] {
         let stages = ["upload","validation","data-service"];
-        if(record.type == 'osw'){
+        if(recordType == 'osw'){
             stages.push('format-result'); // Added step for osw only
         } 
+        return stages;
+    }
+
+    static isProcessingComplete(record:Record):boolean {
+        // Check for the stages
+        let stages = Record.getStages(record.type);
         // get the history
         if(record.history.length < stages.length){
             return false;
