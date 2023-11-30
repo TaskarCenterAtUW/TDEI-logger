@@ -24,6 +24,15 @@ export class ListenerService implements ITopicSubscription {
         if(this.regularFlowTypes.includes(messageType)) {
             this.databaseService.processMessage(message);
         }
+        else if(this.confidenceFlowTypes.includes(messageType)){
+            console.log('Confidence request type');
+            this.databaseService.processConfidenceMessage(message)
+
+        }
+        else if(this.formatFlowTypes.includes(messageType)){
+            console.log('Data formatting type of request')
+            this.databaseService.processFormatterMessage(message)
+        }
         else {
             console.log('Unknown message type');
             console.log(message.messageType);
