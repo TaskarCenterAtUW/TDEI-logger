@@ -78,3 +78,42 @@ To run integration tests, a .env file is needed with minimum of the following co
 To run the integration test, use the command:
 
 `npm run test:integration`
+
+
+## Message type definitions for each stage
+
+| Message Type | Service | Description | Posted to (Topic) |
+|-|-|-|-|
+| gtfs-flex-upload | Flex data service | When flex file is uploaded to using /api/v1/gtfs-flex post service | gtfs-flex-upload |
+| gtfs-flex-validation | Flex validation service | When flex file is validated by the service | gtfs-flex-validation |
+| flex-data-service | Flex data service | When flex file validation is done and info saved | gtfs-flex-data-service|
+| gtfs-pathways-upload | Pathways data service | When pathways file is uploaded to using /api/v1/gtfs-pathways post service | gtfs-pathways-upload |
+| gtfs-pathways-validation | Pathways validation service | When pathways file is validated by the service | gtfs-pathways-validation |
+| gtfs-pathways-data-service | Pathways data service | When pathways file validation is done and info saved | gtfs-pathways-data-service|
+| osw-upload | OSW data service | When OSW file is uploaded to using /api/v1/osw post service | osw-upload |
+| osw-validation | OSW validation service | When osw file is validated by the service | osw-validation |
+| osw-format-result | OSW formatter service | When osw file is converted to multiple | osw-formatting-service|
+| osw-data-service | OSW data service | When osw file validation is done and conversion complete | osw-data-service|
+
+
+### Message types for alternative flows
+
+1. Confidence metric calculation flow for osw
+2. Formatter flow for osw
+
+### Message types in confidence metric flow
+
+| Message Type | Service | Description | Posted to (Topic) |
+|-|-|-|-|
+| osw-confidence-request | OSW data service | Request from data service regarding confidence | osw-confidence-requested |
+| confidence-response | OSW confidence service | Response from confidence service regarding confidence | osw-confidence-calculated |
+
+
+### Formatting types flow in osw 
+
+| Message Type | Service | Description | Posted to (Topic) |
+|-|-|-|-|
+| osw-formatter-request | OSW data service | Request from data service regarding format change | osw-validation |
+| osw-formatter-response | OSW Formatter service | Response from formatter service for formatting | osw-formatting-service |
+
+

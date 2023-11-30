@@ -17,7 +17,7 @@ export default class Record extends AbstractDomainEntity {
     id?:ObjectId;
 
     @Prop()
-    tdeiOrgId!:string;
+    tdeiProjectGroupId!:string;
 
     @Prop()
     type!:string;
@@ -40,16 +40,20 @@ export default class Record extends AbstractDomainEntity {
     @Prop()
     history:QueueMessage[] = []
 
+    
 
    static generateRecord(msg:QueueMessage) : Record {
 
         var theRecord = new Record();
+        const messageType = msg.messageType;
+        theRecord.assignType(messageType);
         theRecord.lastUpdatedAt = msg.publishedDate;
         const content:QueueMessageContent = QueueMessageContent.from(msg.data);
         theRecord.stage =  content.stage;
-        theRecord.tdeiOrgId = content.orgId;
+        theRecord.tdeiProjectGroupId = content.projectGroupId;
         theRecord.userId = content.userId;
         theRecord.history.push(msg);
+
         theRecord.status = content.response.success.toString();
         theRecord.statusMessage = content.response.message;
         theRecord.tdeiRecordId = content.tdeiRecordId;
@@ -63,6 +67,17 @@ export default class Record extends AbstractDomainEntity {
         this.status = content.response.success.toString();
         this.statusMessage = content.response.message;
         this.history.push(msg);
+    }
+
+    fileTypes:string[] = ['osw','flex','pathways']
+    assignType(messageType:string) {
+        
+        for (let fileType of this.fileTypes){
+            if(messageType.includes(fileType)){
+                this.type = fileType;
+                break;
+            }
+        }
     }
 
     static recordToResponse(record: Record):RecordResponse {
@@ -102,7 +117,7 @@ export default class Record extends AbstractDomainEntity {
     }
 
     static nextStage(record:Record):string {
-        var stages = ["upload","validation","data-service"];
+        let stages =  Record.getStages(record.type);
         record.history.forEach((message)=>{
                 
             const content = QueueMessageContent.from(message.data);
@@ -121,9 +136,17 @@ export default class Record extends AbstractDomainEntity {
         }
     }
 
+    static getStages(recordType:string): string[] {
+        let stages = ["upload","validation","data-service"];
+        if(recordType == 'osw'){
+            stages.push('format-result'); // Added step for osw only
+        } 
+        return stages;
+    }
+
     static isProcessingComplete(record:Record):boolean {
         // Check for the stages
-        const stages = ["upload","validation","data-service"];
+        let stages = Record.getStages(record.type);
         // get the history
         if(record.history.length < stages.length){
             return false;

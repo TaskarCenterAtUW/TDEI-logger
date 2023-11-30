@@ -9,7 +9,9 @@ import { RecordNotFoundException } from "../exceptions/http/http-exceptions";
 
 export class DatabaseService {
 
-    collections: { records?: mongoDB.Collection } = {}
+    collections: { records?: mongoDB.Collection,
+                  confidenceJobs?: mongoDB.Collection,
+                formatJobs?: mongoDB.Collection } = {}
 
     initialize(): Promise<boolean> {
         return new Promise((resolve, reject) => {
@@ -21,6 +23,9 @@ export class DatabaseService {
                 const recordsCollection: mongoDB.Collection = db.collection(environment.recordsCollection!);
 
                 this.collections.records = recordsCollection;
+                this.collections.confidenceJobs = db.collection('confidenceJobs');
+                this.collections.formatJobs = db.collection('formatJobs');
+                
 
                 console.log(`Successfully connected to database: ${db.databaseName} and collection: ${recordsCollection.collectionName}`);
                 resolve(true);
@@ -56,6 +61,28 @@ export class DatabaseService {
         }).catch((e)=>{
             console.log(e);
         });
+
+    }
+
+    /**
+     * Processes the messages during the confidence calculation flow
+     * @param msg 
+     */
+    processConfidenceMessage(msg:QueueMessage) {
+        const data = msg.data;
+        const jobId = data['jobId'];
+        console.log('Storing for jobId ',jobId);
+        this.collections.confidenceJobs?.insertOne(data);
+    }
+    /**
+     * Processes the messages during the formatting flow
+     * @param msg 
+     */
+    processFormatterMessage(msg:QueueMessage) {
+        const data = msg.data;
+        const jobId = data['jobId'];
+        console.log('Storing for jobId',jobId);
+        this.collections.formatJobs?.insertOne(data);
 
     }
 
