@@ -9,8 +9,8 @@
     "test:integration":"TEST_ENV=integration jest --testRegex 'test/integration' --forceExit",
     "test:coverage":"jest --coverage --testRegex 'test/unit'",
     "build": "rimraf ./build && tsc",
-    "start": "npm run build  && npm run copy:assets && node build/index.js",
-    "serve": "npm run build  && npm run copy:assets && node build/app.js",
+    "start": "npm run build  && npm run copy:assets && node build/src/index.js",
+    "serve": "npm run build  && npm run copy:assets && node build/src/app.js",
     "start:dev": "nodemon",
     "copy:assets": "cp -r 'src/assets/' 'build/assets/'"
   },
