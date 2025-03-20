@@ -4,10 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npm run build  && npm run copy:assets && node build/examples.js",
+    "test":"jest --silent --testRegex 'test/unit'",
+    "test:watch":"jest --watchAll",
+    "test:integration":"TEST_ENV=integration jest --testRegex 'test/integration' --forceExit",
+    "test:coverage":"jest --coverage --testRegex 'test/unit'",
     "build": "rimraf ./build && tsc",
-    "start": "npm run build  && npm run copy:assets && node build/index.js",
-    "serve": "npm run build  && npm run copy:assets && node build/app.js",
+    "start": "npm run build  && npm run copy:assets && node build/src/index.js",
+    "serve": "npm run build  && npm run copy:assets && node build/src/app.js",
     "start:dev": "nodemon",
     "copy:assets": "cp -r 'src/assets/' 'build/assets/'"
   },
@@ -20,12 +23,19 @@
     "nodemon": "^2.0.19",
     "rimraf": "^3.0.2",
     "ts-node": "^10.9.1",
-    "typescript": "^4.8.2"
+    "typescript": "^4.8.2",
+    "ts-jest":"29.1.0",
+    "jest":"^29.0.3",
+    "jest-html-reporter":"3.10.1",
+    "@types/jest": "^29.2.4",
+    "@jest-mock/express": "^2.0.1"
   },
   "dependencies": {
     "class-validator": "^0.14.0",
     "date-fns": "^2.29.2",
     "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "helmet": "^6.0.1",
     "koa": "^2.13.4",
     "koa-body-parser": "^1.1.2",
     "koa-json": "^2.0.2",

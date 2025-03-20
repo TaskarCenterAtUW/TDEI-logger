@@ -1,0 +1,55 @@
+{
+  "publishedDate": "2023-03-10T09:20:07.596124688Z",
+  "messageId": "d9d047b5-a2b7-49ee-853d-0a4f59275fb0",
+  "messageType": "osw-upload",
+  "message": "",
+  "data": {
+      "stage": "osw-upload",
+      "request": {
+          "tdei_project_group_id": "5e339544-3b12-40a5-8acd-78c66d1fa981",
+          "collected_by": "sfsd",
+          "collection_date": "2023-03-03T02:22:45.374Z",
+          "collection_method": "string",
+          "valid_from": "2023-03-03T02:22:45.374Z",
+          "valid_to": "2023-03-03T02:22:45.374Z",
+          "data_source": "string",
+          "polygon": {
+              "coordinates": [
+                  [
+                      [
+                          77.58700584031209,
+                          12.97544246408998
+                      ],
+                      [
+                          77.58670678771239,
+                          12.974635462667848
+                      ],
+                      [
+                          77.58782248394829,
+                          12.974489753799247
+                      ],
+                      [
+                          77.58813303857153,
+                          12.97529675569426
+                      ],
+                      [
+                          77.58700584031209,
+                          12.97544246408998
+                      ]
+                  ]
+              ]
+          },
+          "osw_schema_version": "1.0.0"
+      },
+      "meta": {
+          "file_upload_path": "https://tdeisamplestorage.blob.core.windows.net/osw/2023%2FMARCH%2F5e339544-3b12-40a5-8acd-78c66d1fa981%2Fvalid_978203eeac334bdeba262899fce1fd8a.zip"
+      },
+      "response": {
+          "success": true,
+          "message": "File uploaded for the Organization : 5e339544-3b12-40a5-8acd-78c66d1fa981 with tdei record id : 978203eeac334bdeba262899fce1fd8a"
+      },
+      "tdei_record_id": "978203eeac334bdeba262899fce1fd8a",
+      "tdei_project_group_id": "5e339544-3b12-40a5-8acd-78c66d1fa981",
+      "user_id": "7961d767-a352-464f-95b6-cd1c5189a93c"
+  }
+}
