@@ -1,4 +1,8 @@
+# Archived
+This repository is archived and is no longer used. All the system logs for TDEI are now maintained in Azure LogWorkspaces.
+
 # TDEI-Logger
+
 General logger for all the queue messages that happen over the TDEI system
 
 
